@@ -1,18 +1,15 @@
 #include "ft_printf.h"
 
-void    print_xX(va_list *args, int mode, size_t *index)
+void    print_xX(int i, int mode, size_t *index)
 {
-    int n;
-
-    n = va_arg(*args, int);
 
     if (mode == 0) // min
     {
-        print_hex((unsigned int)n, index);
+        print_hex((unsigned int)i, index);
     }
     if (mode == 1)
     {
-        print_hex_upper((unsigned int)n, index);
+        print_hex_upper((unsigned int)i, index);
     }
 }
 

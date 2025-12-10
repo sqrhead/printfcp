@@ -8,7 +8,7 @@
 int		ft_printf(const char *, ...);
 void	check(const char *str, size_t *index, va_list args);
 void	print_c(char c, size_t *index);
-void	print_s(char *s *args, size_t *index);
+void	print_s(char *s, size_t *index);
 void	print_p(void *p, size_t *index);
 void	print_di(int i, size_t *index);
 void    print_u(unsigned int ui, size_t *index);
