@@ -2,19 +2,19 @@
 
 size_t	print_until(const char *str)
 {
-	size_t	i;
+	size_t	index;
 
-	i = 0;
+	index = 0;
 	if (!str)
 		return (-1);
-	while (str[i])
+	while (str[index])
 	{
-		if (str[i] == '%')
-			return (i);
-		write(1,&str[i],1);
-		i ++;
+		if (str[index] == '%')
+			return (index);
+		write(1,&str[index],1);
+		index ++;
 	}
-	return (0);
+	return (index);
 }
 
 void check(const char *str, size_t index, va_list args)
@@ -27,6 +27,14 @@ void check(const char *str, size_t index, va_list args)
 		print_p(args);
 	else if (str[index] == 'd' || str[index] == 'i')
 		print_di(args);
+	else if (str[index] == 'u')
+		print_u(args);
+	else if (str[index] == 'x')
+		print_xX(args,0);
+	else if (str[index] == 'X')
+		print_xX(args,1);
+	else if (str[index] == '%')
+		print_percent();
 }
 
 int	ft_printf(const char *str, ...)
@@ -42,14 +50,13 @@ int	ft_printf(const char *str, ...)
 	return (index);
 }
 
+#include <limits.h>
 int main()
 {
 	char c = 'A';
-	char c2 = '@';
 	ft_printf("print a char  : %c",c);
 	printf("\n");
 	char str[] = "STR";
-	char str2[] = "STR2";
 	ft_printf("print a char* : %s",str);
 	printf("\nprintf a char* : %s\n",str);
 	printf("printf void* : %p\n",&str);
@@ -62,5 +69,19 @@ int main()
 	ft_printf("print d %d\n",num);
 	printf("\n");
 	ft_printf("print i %i\n",num2);
+	printf("\n");
+	unsigned int un = INT_MIN;
+	printf("printf unsigned int %u\n",un);
+	ft_printf("ft_printf unsigned int %u\n",un);
+	printf("\n");
+	int hn = -2030; // 128808997
+	printf("printf hexnum %x\n",hn);
+	printf("printf hexnum_upper %X\n",hn);
+	ft_printf("ft_printf hexnum %x",hn);
+	printf("\n");
+	ft_printf("ft_printf hexnum_upper %X",hn);
+	printf("\n");
+	printf("printf percent %%\n");
+	ft_printf("ft_printf percent %%");
 	printf("\n");
 }

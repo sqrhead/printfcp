@@ -9,7 +9,16 @@ void	print_hex(unsigned long p)
 	write(1, &hex[p % 16], 1);
 }
 
-void	print_dec(long n)
+void	print_hex_upper(unsigned long p)
+{
+	static const char	hex_upper[] = "0123456789ABCDEF";
+
+	if (p >= 16)
+		print_hex_upper(p / 16);
+	write(1, &hex_upper[p % 16], 1);
+}
+
+void	print_dec(unsigned long n)
 {
 	static const char	dec[] = "0123456789";
 

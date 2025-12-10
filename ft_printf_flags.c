@@ -34,14 +34,25 @@ void print_c(va_list args)
 
 void print_di(va_list args)
 {
-    unsigned long   num;
-    int				arg;
-
+	unsigned long 	num;
+	int		arg;
+	
+	num = 0;
+	arg = 0;
 	arg = va_arg(args, int);
-	num = (unsigned long)arg;
 	if (arg < 0)
 	{
 		write(1,"-",1);
+		arg = arg * -1; 	
 	}
+	num = (unsigned long)arg;
 	print_dec(num);
+}
+
+void print_u(va_list args)
+{
+	unsigned int	n;
+
+	n = va_arg(args, unsigned int);
+	print_dec(n);
 }
