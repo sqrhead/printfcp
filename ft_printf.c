@@ -4,19 +4,19 @@
 void check(const char *str, size_t *index, va_list args)
 {
 	if (str[*index] == 'c')
-		print_c(args, index);
+		print_c(va_arg(args, int), index);
 	else if (str[*index] == 's')
-		print_s(args, index);
+		print_s(va_arg(args, char *), index);
 	else if (str[*index] == 'p')
-		print_p(args, index);
+		print_p(va_arg(args, void *), index);
 	else if (str[*index] == 'd' || str[*index] == 'i')
-		print_di(args, index);
+		print_di(va_arg(args, int), index);
 	else if (str[*index] == 'u')
-		print_u(args, index);
+		print_u(va_arg(args, unsigned int), index);
 	else if (str[*index] == 'x')
-		print_xX(args,0, index);
+		print_xX(va_arg(args, int),0, index);
 	else if (str[*index] == 'X')
-		print_xX(args,1, index);
+		print_xX(va_arg(args, int),1, index);
 	else if (str[*index] == '%')
 		print_percent(index);
 	else
@@ -36,13 +36,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[index] == '%')
 		{
-			index ++;
+			index += 1;
 			check(format, &index, args);
-			index ++;
+			index += 1;
 			// return (*index);
 		}
 		write(1,&format[index],1);
-		index ++;
+		index += 1;
 	}
 
 	va_end(args);
@@ -57,8 +57,8 @@ int main()
 	ft_printf("ft_printf { char }  : %c\n",c);
 	ft_printf("ft_print { char*} : %s\n",str);
 	printf("printf { char*} : %s\n",str);
-	ft_printf("ft_printf { void* }  : %p\n",&str);
 	printf("printf { void* } : %p\n",&str);
+	ft_printf("ft_printf { void* }  : %p\n",&str);
 	int num = -130;
 	printf("printf { decimal base 10 } %d\n",num);
 	printf("printf { integer base 10 } %i\n",num);
