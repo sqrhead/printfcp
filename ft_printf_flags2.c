@@ -3,7 +3,7 @@
 void    print_xX(int i, int mode, size_t *index)
 {
 
-    if (mode == 0) // min
+    if (mode == 0) 
     {
         print_hex((unsigned int)i, index);
     }

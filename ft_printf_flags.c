@@ -12,7 +12,7 @@ void print_s(char *s, size_t *index)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		write(1, &s[i], 1);
 		i ++;
