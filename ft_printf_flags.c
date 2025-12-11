@@ -10,8 +10,13 @@ void print_p(void *p, size_t *index)
 void print_s(char *s, size_t *index)
 {
 	size_t	i;
-
+	
 	i = 0;
+	if (!s)
+	{
+		write(1,"(null)",6);
+		return ;
+	}
 	while (s && s[i])
 	{
 		write(1, &s[i], 1);
