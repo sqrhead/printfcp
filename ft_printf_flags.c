@@ -1,54 +1,72 @@
 #include "ft_printf.h"
 
-void print_p(void *p, size_t *index)
+int	print_p(void *p)
 {
+	int	count;
+
+	count = 2;
 	write(1,"0x",2);
-	*index += 2;
-	print_hex((unsigned long)p, index);
+	print_hex((unsigned long)p, &count);
+	return (count);
 }
 
-void print_s(char *s, size_t *index)
+int	print_s(char *s)
 {
 	size_t	i;
+	int	count;
 	
 	i = 0;
+	count = 0;
 	if (!s)
 	{
 		write(1,"(null)",6);
-		return ;
+		count = 6;
+		return (count);
 	}
 	while (s && s[i])
 	{
 		write(1, &s[i], 1);
 		i ++;
+		count ++;
 	}
-	*index += i;
+	return (count);
 }
 
-void print_c(char c, size_t *index)
+int	print_c(char c)
 {
 	// char c = va_arg(*args, unsigned int); // char give error, check why
+	int	count;
+	
+	count = 1;
 	write(1, &c, 1);
-	*index += 1;
+	return (count);
+	
 }
 
-void print_di(int i, size_t *index)
+int	print_di(int i)
 {
 	unsigned long 	num;
+	int		count;
 
 	num = 0;
+	count = 0;
 	// arg = va_arg(*args, int);
 	if (i < 0)
 	{
 		write(1,"-",1);
-		*index += 1;
+		count ++;
 		i = i * -1;
 	}
 	num = (unsigned long)i;
-	print_dec(num, index);
+	print_dec(num, &count);
+	return (count);
 }
 
-void print_u(unsigned int ui, size_t *index)
-{
-	print_dec(ui, index);
+int	print_u(unsigned int ui)
+{	
+	int	count;
+	
+	count = 0;
+	print_dec(ui, &count);
+	return (count);
 }

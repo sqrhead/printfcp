@@ -5,17 +5,17 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int		ft_printf(const char *, ...);
-void	check(const char *str, size_t *index, va_list args);
-void	print_c(char c, size_t *index);
-void	print_s(char *s, size_t *index);
-void	print_p(void *p, size_t *index);
-void	print_di(int i, size_t *index);
-void    print_u(unsigned int ui, size_t *index);
-void    print_xX(int i, int mode, size_t *index);
-void    print_percent(size_t *index);
-void	print_hex(unsigned long p, size_t *index);
-void	print_hex_upper(unsigned long p, size_t *index);
-void	print_dec(unsigned long n, size_t *index);
+int	ft_printf(const char *, ...);
+int	check(const char *str, size_t index, va_list args);
+int	print_c(char c);
+int	print_s(char *s);
+int	print_p(void *p);
+int	print_di(int i);
+int	print_u(unsigned int ui);
+int	print_xX(int i, int mode);
+int	print_percent();
+void	print_hex(unsigned long p, int *count);
+void	print_hex_upper(unsigned long p, int *count);
+void	print_dec(unsigned long n, int *count);
 
 #endif
