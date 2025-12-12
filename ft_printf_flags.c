@@ -3,7 +3,13 @@
 int	print_p(void *p)
 {
 	int	count;
-
+	
+	if (!p)
+	{
+		count = 5;
+		write(1, "(nil)", 5);
+		return (count);	
+	}
 	count = 2;
 	write(1,"0x",2);
 	print_hex((unsigned long)p, &count);
@@ -45,19 +51,18 @@ int	print_c(char c)
 
 int	print_di(int i)
 {
-	unsigned long 	num;
+	unsigned int	num;
 	int		count;
 
 	num = 0;
 	count = 0;
-	// arg = va_arg(*args, int);
 	if (i < 0)
 	{
 		write(1,"-",1);
 		count ++;
 		i = i * -1;
 	}
-	num = (unsigned long)i;
+	num = (unsigned int)i;
 	print_dec(num, &count);
 	return (count);
 }

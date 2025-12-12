@@ -25,7 +25,7 @@ int check(const char *str, size_t index, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	size_t	index;
-	int	total_count; // quando loopo sulla stringa aumento l index ma non e' il valore reale di format
+	int	total_count; 
 	va_list	args;
 
 	va_start(args, format);
@@ -48,75 +48,75 @@ int	ft_printf(const char *format, ...)
 			index ++;
 		}
 	}
-
 	va_end(args);
 	return (total_count);
 }
- #include <limits.h>
- int main()
- {
- 	char		*str = "str_test";
- 	unsigned int	ui = 20;
- 	int		i = -20;
- 	int		hex = 120410519;
- 	int		len = 0;
 
- 	printf("========= FT_PRINTF ==================\n");
- 	len =	ft_printf("CHAR %c%c%c\n",str[0],str[1],str[2]);
- 	ft_printf("CHAR LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("STR %s\n",str);
- 	ft_printf("STR LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("PTR_ADDRESS %p\n",str);
- 	ft_printf("PTR LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("INT %i\n",i);
- 	ft_printf("INT LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("DEC %d\n",i);
- 	ft_printf("DEC LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("UNSIGNED INT %u\n",ui);
- 	ft_printf("UI LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("HEX_MIN %x\n",hex);
- 	ft_printf("HEXM LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("HEX_UPP %X\n",hex);
- 	ft_printf("HEXU LEN %i\n",len);
- 	printf("======================================\n");
- 	len =	ft_printf("PERCENT %%\n");
- 	ft_printf("PER LEN %i\n",len);
- 	printf("======================================\n");
+/*
+#include <limits.h>
+int main()
+{
+	char		*str = "str_test";
+	unsigned int	ui = 20;
+	int		i = -20;
+	int		hex = 120410519;
+	int		len = 0;
 
- 	printf("========= PRINTF ==================\n");
- 	len = printf("CHAR %c%c%c\n",str[0],str[1],str[2]);
- 	printf("CHAR LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("STR %s\n",str);
- 	printf("STR LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("PTR_ADDRESS %p\n",str);
- 	printf("PTR LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("INT %i\n",i);
- 	printf("INT LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("DEC %d\n",i);
- 	printf("DEC LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("UNSIGNED INT %u\n",ui);
- 	printf("UI LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("HEX_MIN %x\n",hex);
- 	printf("HEXM LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("HEX_UPP %X\n",hex);
- 	printf("HEXU LEN %i\n",len);
- 	printf("======================================\n");
- 	len = printf("PERCENT %%\n");
- 	printf("PER LEN %i\n",len);
- 	printf("======================================\n");
-
- }
+	printf("========= FT_PRINTF ==================\n");
+	len =	ft_printf("CHAR %c%c%c\n",str[0],str[1],str[2]);
+	ft_printf("CHAR LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("STR %s\n",str);
+	ft_printf("STR LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("PTR_ADDRESS %p\n",str);
+	ft_printf("PTR LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("INT %i\n",i);
+	ft_printf("INT LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("DEC %d\n",INT_MIN);
+	ft_printf("DEC LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("UNSIGNED INT %u\n",ui);
+	ft_printf("UI LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("HEX_MIN %x\n",hex);
+	ft_printf("HEXM LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("HEX_UPP %X\n",hex);
+	ft_printf("HEXU LEN %i\n",len);
+	printf("======================================\n");
+	len =	ft_printf("PERCENT %%\n");
+	ft_printf("PER LEN %i\n",len);
+	printf("======================================\n");
+	printf("========= PRINTF ==================\n");
+	len = printf("CHAR %c%c%c\n",str[0],str[1],str[2]);
+	printf("CHAR LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("STR %s\n",str);
+	printf("STR LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("PTR_ADDRESS %p\n",str);
+	printf("PTR LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("INT %i\n",i);
+	printf("INT LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("DEC %d\n",i);
+	printf("DEC LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("UNSIGNED INT %u\n",ui);
+	printf("UI LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("HEX_MIN %x\n",hex);
+	printf("HEXM LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("HEX_UPP %X\n",hex);
+	printf("HEXU LEN %i\n",len);
+	printf("======================================\n");
+	len = printf("PERCENT %%\n");
+	printf("PER LEN %i\n",len);
+	printf("======================================\n");
+}
+*/
