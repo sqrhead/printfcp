@@ -32,20 +32,18 @@ int	ft_printf(const char *format, ...)
 	index = 0;
 	total_count = 0;
 	if (!format)
-		return (index);
+		return (-1);
 	while (format[index])
 	{
 		if (format[index] == '%' && format[index + 1])
 		{
-			index += 1;
-			total_count += check(format, index, args);
+			total_count += check(format, ++index, args);
 			index += 1;
 		}
 		else
 		{
-			write(1,&format[index],1);
+			write(1,&format[index++],1);
 			total_count ++;
-			index ++;
 		}
 	}
 	va_end(args);
