@@ -1,7 +1,6 @@
 #include "ft_printf.h"
 
-
-int check(const char *str, size_t index, va_list args)
+int	check(const char *str, size_t index, va_list args)
 {
 	if (str[index] == 'c')
 		return (print_c(va_arg(args, int)));
@@ -14,9 +13,9 @@ int check(const char *str, size_t index, va_list args)
 	else if (str[index] == 'u')
 		return (print_u(va_arg(args, unsigned int)));
 	else if (str[index] == 'x')
-		return (print_xX(va_arg(args, int),0));
+		return (print_xX(va_arg(args, int), 0));
 	else if (str[index] == 'X')
-		return (print_xX(va_arg(args, int),1));
+		return (print_xX(va_arg(args, int), 1));
 	else if (str[index] == '%')
 		return (print_percent());
 	return (0);
@@ -25,7 +24,7 @@ int check(const char *str, size_t index, va_list args)
 int	ft_printf(const char *format, ...)
 {
 	size_t	index;
-	int	total_count; 
+	int		total_count;
 	va_list	args;
 
 	va_start(args, format);
@@ -42,7 +41,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			write(1,&format[index++],1);
+			write(1, &format[index++], 1);
 			total_count ++;
 		}
 	}
