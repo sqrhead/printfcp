@@ -48,7 +48,6 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (total_count);
 }
-
 /*
 #include <limits.h>
 int main()
@@ -114,6 +113,7 @@ int main()
 	printf("======================================\n");
 	len = printf("PERCENT %%\n");
 	printf("PER LEN %i\n",len);
+	printf("%%");
 	printf("======================================\n");
 }
 */

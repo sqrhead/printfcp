@@ -5,7 +5,7 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-int		ft_printf(const char *str, ...);
+int		ft_printf(const char *format, ...);
 int		check(const char *str, size_t index, va_list args);
 int		print_c(char c);
 int		print_s(char *s);
