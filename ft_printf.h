@@ -12,7 +12,7 @@ int		print_s(char *s);
 int		print_p(void *p);
 int		print_di(int i);
 int		print_u(unsigned int ui);
-int		print_xX(int i, int mode);
+int		print_xx(int i, int mode);
 int		print_percent(void);
 void	print_hex(unsigned long p, int *count);
 void	print_hex_upper(unsigned long p, int *count);

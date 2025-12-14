@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	print_xX(int i, int mode)
+int	print_xx(int i, int mode)
 {
 	int	count;
 

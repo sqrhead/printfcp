@@ -13,9 +13,9 @@ int	check(const char *str, size_t index, va_list args)
 	else if (str[index] == 'u')
 		return (print_u(va_arg(args, unsigned int)));
 	else if (str[index] == 'x')
-		return (print_xX(va_arg(args, int), 0));
+		return (print_xx(va_arg(args, int), 0));
 	else if (str[index] == 'X')
-		return (print_xX(va_arg(args, int), 1));
+		return (print_xx(va_arg(args, int), 1));
 	else if (str[index] == '%')
 		return (print_percent());
 	return (0);
@@ -54,7 +54,7 @@ int main()
 {
 	char		*str = "str_test";
 	unsigned int	ui = 20;
-	int		i = -20;
+	int		i = INT_MAX;
 	int		hex = 120410519;
 	int		len = 0;
 
@@ -68,7 +68,7 @@ int main()
 	len =	ft_printf("PTR_ADDRESS %p\n",str);
 	ft_printf("PTR LEN %i\n",len);
 	printf("======================================\n");
-	len =	ft_printf("INT %i\n",i);
+	len =	ft_printf("INT PORCODIO %i\n",INT_MAX);
 	ft_printf("INT LEN %i\n",len);
 	printf("======================================\n");
 	len =	ft_printf("DEC %d\n",INT_MIN);
@@ -96,10 +96,10 @@ int main()
 	len = printf("PTR_ADDRESS %p\n",str);
 	printf("PTR LEN %i\n",len);
 	printf("======================================\n");
-	len = printf("INT %i\n",i);
+	len = printf("INT %i\n",INT_MAX);
 	printf("INT LEN %i\n",len);
 	printf("======================================\n");
-	len = printf("DEC %d\n",i);
+	len = printf("DEC %d\n",INT_MIN);
 	printf("DEC LEN %i\n",len);
 	printf("======================================\n");
 	len = printf("UNSIGNED INT %u\n",ui);
