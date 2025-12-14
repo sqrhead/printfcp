@@ -8,7 +8,7 @@
     - Then i keep looping until it ends and return the len.
     - If it fails -1 is returned.
 # INSTRUCTIONS
-- To Compile : make 
+- To Compile Library : make 
 - To Run : remove the commented main and cc *.c after you need to ./a.out 
 # RESOURCES
 - Nothing
