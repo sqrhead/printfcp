@@ -3,10 +3,10 @@
 # DESCRIPTION
 - GOAL : Imitate printf behaviour
 - BRIEF OVERVIEW : 
-    I loop on the <format> string 
-    If it finds a flag i print the corresponding format that return its length
-    Then i keep looping until it ends and return the len
-    If it fails -1 is returned
+    - I loop on the <format> string. 
+    - If it finds a flag i print the corresponding format that return its length.
+    - Then i keep looping until it ends and return the len.
+    - If it fails -1 is returned.
 # INSTRUCTIONS
 - To Compile : make 
 - To Run : remove the commented main and cc *.c after you need to ./a.out 
